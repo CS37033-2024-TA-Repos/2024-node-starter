@@ -13,3 +13,13 @@ model example {
   id   Int    @id @default(autoincrement())
   text String
 }
+
+model L1Nodes {
+
+}
+
+model L1Edges {
+  startNodeID     L1Nodes @id
+  endNodeID       L1Nodes @id
+  
+}
