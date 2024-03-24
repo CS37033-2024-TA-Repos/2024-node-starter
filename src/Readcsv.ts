@@ -1,11 +1,16 @@
-import { PrismaClient } from "../.prisma/client";
-import readCSVFile from "./Readcsv";
-const prisma = new PrismaClient()
+import fs from "fs";
 
-// prisma.example.create({
-//     data:{
-//         text:"test"
-//     }
-// })
-const edges = readCSVFile('L1Edges.csv');
-const nodes = readCSVFile('L1Nodes.csv');
+function readCSVFile(filePath: string): string[][] {
+    try {
+        const data = fs.readFileSync(filePath, "utf-8")
+        return data
+            .split('\r\n')
+            .slice(1,-1) // Remove the first row and the last row
+            .map(row => row.split(','));
+    }
+    catch (err) {
+        console.error(err);
+        return [[]]
+    }
+}
+export default readCSVFile;
