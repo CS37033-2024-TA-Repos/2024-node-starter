@@ -32,7 +32,8 @@ const edgeData = {
   ],
   data: [{ id: 1, startNodeID: "CCONF002L1", endNodeID: "WELEV00HL1" }],
 };
-createCSVFile(edgeData, "L1EdgesTest.csv");
+createCSVFile(edgeData, "csv_data/edgeTest.csv");
+
 const nodeData = {
   headers: [
     { id: "nodeID", title: "nodeID" },
@@ -58,4 +59,4 @@ const nodeData = {
     },
   ],
 };
-createCSVFile(nodeData, "L1NodesTest.csv");
+createCSVFile(nodeData, "csv_data/nodeTest.csv");
